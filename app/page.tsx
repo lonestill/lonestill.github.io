@@ -8,6 +8,7 @@ const appImage =
   `${repo}/releases/download/v1.6.3/Onyx-Launcher-1.6.3-x86_64.AppImage`;
 const linuxTar =
   `${repo}/releases/download/v1.6.3/Onyx-Launcher-1.6.3-linux-x64.tar.gz`;
+const scoop = "https://github.com/lonestill/scoop-onyx";
 
 const features = [
   {
@@ -231,6 +232,7 @@ mod scan       148 checked
               <p>NSIS installer for a normal setup, or a portable executable.</p>
               <a className="button primary" href={windows}>Download installer <span>↘</span></a>
               <a className="textLink" href={portable}>Portable .exe</a>
+              <a className="textLink" href={scoop}>Install with Scoop</a>
             </article>
             <article>
               <div className="platformIcon">◆</div>
