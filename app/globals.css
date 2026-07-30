@@ -502,6 +502,78 @@ h1 em {
   font: 12px/1.85 Consolas, Monaco, monospace;
 }
 
+.faq {
+  width: 100%;
+  color: #11130f;
+  background: #e5e3dc;
+}
+
+.faq .kicker {
+  color: #55741b;
+}
+
+.faq .sectionHead p:last-child {
+  color: #5d6159;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  border: 1px solid #b8bab3;
+  background: #b8bab3;
+}
+
+.faqGrid details {
+  min-height: 175px;
+  padding: 27px 29px;
+  background: #f1f0ea;
+}
+
+.faqGrid summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.faqGrid summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqGrid summary span {
+  color: #55741b;
+  font: 400 24px/0.8 Georgia, serif;
+  transition: transform 160ms ease;
+}
+
+.faqGrid details[open] summary span {
+  transform: rotate(45deg);
+}
+
+.faqGrid p {
+  margin: 24px 0 0;
+  color: #5d6159;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.faqGrid code {
+  margin-top: 16px;
+  padding: 11px 12px;
+  display: block;
+  overflow-x: auto;
+  color: #314313;
+  background: #dde4cf;
+  font: 11px/1.5 Consolas, Monaco, monospace;
+  white-space: nowrap;
+}
+
 .download {
   padding: 132px 0;
   color: #12130f;
@@ -922,6 +994,7 @@ footer {
 
   .featureGrid,
   .downloadGrid,
+  .faqGrid,
   .screenGrid,
   .pressScreens,
   .resourceGrid,

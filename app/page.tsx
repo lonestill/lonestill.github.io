@@ -44,11 +44,46 @@ const features = [
   }
 ];
 
+const faqs = [
+  {
+    question: "Is this a desktop launcher?",
+    answer:
+      "Yes. This Onyx Launcher project by lonestill publishes Windows x64 and Linux x64 desktop builds only. It is not connected to similarly named Android launchers."
+  },
+  {
+    question: "Do I need to install Java first?",
+    answer:
+      "No. Onyx selects and installs the appropriate Eclipse Temurin 8, 17, or 21 runtime for the Minecraft version you launch."
+  },
+  {
+    question: "How do I run the Linux AppImage?",
+    answer:
+      "Download it, make the file executable, and launch it. Desktop environments can also expose the executable permission in the file properties.",
+    command:
+      "chmod +x Onyx-Launcher-1.6.3-x86_64.AppImage && ./Onyx-Launcher-1.6.3-x86_64.AppImage"
+  },
+  {
+    question: "Does Onyx include Minecraft or bypass its license?",
+    answer:
+      "No. Game files come from Mojang and third-party content comes from URLs supplied by Modrinth. A licensed Microsoft account is required for the full Java Edition experience; the official demo can run without an account."
+  },
+  {
+    question: "Can I verify the downloads?",
+    answer:
+      "Yes. Every release includes separate SHA-256 checksum files for Windows and Linux, and the build workflows are public. Windows binaries are currently unsigned, so SmartScreen may still display a warning."
+  },
+  {
+    question: "Where are instances and worlds stored?",
+    answer:
+      "They remain in local, platform-specific Onyx data directories. Each instance stays isolated, while World Guard snapshots, portable backups, and operating-system trash protect against destructive mistakes."
+  }
+];
+
 const schema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Onyx Launcher",
-  alternateName: "Onyx",
+  alternateName: "Onyx Launcher for Desktop",
   url: website,
   image: `${website}/social-card.png`,
   screenshot: [
@@ -58,7 +93,7 @@ const schema = {
     `${website}/instance.png`
   ],
   applicationCategory: "GameApplication",
-  applicationSubCategory: "Minecraft launcher",
+  applicationSubCategory: "Desktop Minecraft launcher",
   operatingSystem: "Windows 10, Windows 11, Linux",
   softwareVersion: "1.6.3",
   releaseNotes: release,
@@ -84,7 +119,7 @@ const schema = {
     "World snapshots and safe backups"
   ],
   description:
-    "Open-source Minecraft launcher with isolated instances, Modrinth integration, automatic Java, crash diagnostics, and safe backups."
+    "Open-source desktop Minecraft launcher for Windows and Linux with isolated instances, Modrinth integration, automatic Java, crash diagnostics, and safe backups."
 };
 
 export default function Home() {
@@ -105,6 +140,7 @@ export default function Home() {
         <div className="navLinks">
           <a href="#features">Features</a>
           <a href="#screens">Screens</a>
+          <a href="#faq">FAQ</a>
           <a href="#download">Download</a>
           <a href="/press">Press kit</a>
           <a href={repo}>GitHub</a>
@@ -248,6 +284,30 @@ mod scan       148 checked
 
 ✓ no blocking conflicts found
 → ready to launch`}</pre>
+        </div>
+      </section>
+
+      <section className="faq section" id="faq">
+        <div className="shell">
+          <div className="sectionHead splitHead">
+            <div>
+              <p className="kicker">BEFORE YOU DOWNLOAD</p>
+              <h2>Clear answers, no launcher mythology.</h2>
+            </div>
+            <p>
+              Platform support, Java, licensing, integrity, and storage should be
+              understandable before an executable reaches your machine.
+            </p>
+          </div>
+          <div className="faqGrid">
+            {faqs.map((faq) => (
+              <details key={faq.question}>
+                <summary>{faq.question}<span aria-hidden="true">+</span></summary>
+                <p>{faq.answer}</p>
+                {faq.command && <code>{faq.command}</code>}
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

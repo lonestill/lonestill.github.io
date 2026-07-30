@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const title = "Onyx Launcher — A modern Minecraft launcher";
+const title = "Onyx Launcher — Open-source desktop Minecraft launcher";
 const description =
-  "Open-source Minecraft launcher for Windows and Linux with isolated instances, Modrinth modpacks, automatic Java, crash diagnostics, and safe backups.";
+  "Open-source desktop Minecraft launcher for Windows and Linux with isolated instances, Modrinth modpacks, automatic Java, crash diagnostics, and safe backups.";
 const website = "https://lonestill.github.io";
 const socialImage = `${website}/social-card.png`;
 
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   },
   keywords: [
     "Minecraft launcher",
+    "desktop Minecraft launcher",
     "open source Minecraft launcher",
     "Modrinth launcher",
     "Fabric launcher",

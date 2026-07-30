@@ -4,7 +4,7 @@
 
 This repository contains the official website for
 [Onyx Launcher](https://github.com/lonestill/onyx-launcher), an open-source
-Minecraft launcher for Windows and Linux.
+desktop Minecraft launcher for Windows and Linux.
 
 The site presents the launcher's main features, English interface screenshots,
 verified release downloads, installation options, and a reusable

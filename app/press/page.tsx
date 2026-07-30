@@ -11,14 +11,14 @@ const windows =
 export const metadata: Metadata = {
   title: "Press kit — Onyx Launcher",
   description:
-    "Verified facts, English screenshots, artwork, release links, and contact details for coverage of Onyx Launcher.",
+    "Verified facts, English screenshots, artwork, release links, and contact details for coverage of the Onyx Launcher desktop app.",
   alternates: {
     canonical: "/press"
   },
   openGraph: {
     title: "Onyx Launcher press kit",
     description:
-      "Verified facts, English screenshots, artwork, and release links for an open-source Minecraft launcher.",
+      "Verified facts, English screenshots, artwork, and release links for an open-source desktop Minecraft launcher.",
     url: `${website}/press`,
     type: "website",
     images: [
@@ -140,19 +140,20 @@ export default function PressKit() {
             <article>
               <small>ONE SENTENCE</small>
               <p>
-                Onyx Launcher is an MIT-licensed Minecraft launcher for Windows and
-                Linux with isolated instances, Modrinth integration, automatic Java,
-                crash diagnostics, and safer world backups.
+                Onyx Launcher is an MIT-licensed desktop Minecraft launcher for
+                Windows and Linux with isolated instances, Modrinth integration,
+                automatic Java, crash diagnostics, and safer world backups.
               </p>
             </article>
             <article>
               <small>SHORT DESCRIPTION</small>
               <p>
-                Onyx Launcher keeps Minecraft instances isolated and gives players
-                built-in Modrinth discovery, automatic Eclipse Temurin management,
-                controlled mod bisecting, performance diagnostics, world snapshots,
-                and portable backups. Its source and release workflows are public,
-                and every release includes SHA-256 checksums.
+                Onyx Launcher is a Windows and Linux desktop app that keeps Minecraft
+                instances isolated and gives players built-in Modrinth discovery,
+                automatic Eclipse Temurin management, controlled mod bisecting,
+                performance diagnostics, world snapshots, and portable backups. Its
+                source and release workflows are public, and every release includes
+                SHA-256 checksums.
               </p>
             </article>
           </div>
