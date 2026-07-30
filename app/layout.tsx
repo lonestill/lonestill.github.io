@@ -12,7 +12,10 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: {
-    canonical: "/"
+    canonical: "/",
+    types: {
+      "application/rss+xml": "/feed.xml"
+    }
   },
   keywords: [
     "Minecraft launcher",

@@ -10,6 +10,7 @@ const appImage =
 const linuxTar =
   `${repo}/releases/download/v1.6.3/Onyx-Launcher-1.6.3-linux-x64.tar.gz`;
 const scoop = "https://github.com/lonestill/scoop-onyx";
+const appImageHub = "https://appimage.github.io/Onyx_Launcher/";
 
 const features = [
   {
@@ -335,6 +336,7 @@ mod scan       148 checked
               <p>Run the AppImage directly, or unpack the portable tar archive.</p>
               <a className="button primary" href={appImage}>Download AppImage <span>↘</span></a>
               <a className="textLink" href={linuxTar}>Portable .tar.gz</a>
+              <a className="textLink" href={appImageHub}>View on AppImageHub</a>
             </article>
             <article className="sourceCard">
               <div className="platformIcon">&lt;/&gt;</div>
@@ -367,6 +369,7 @@ mod scan       148 checked
             <a href={release}>Release 1.6.3</a>
             <a href="/blog/onyx-launcher-1-6-3">Release story</a>
             <a href="/press">Press kit</a>
+            <a href="/feed.xml">RSS</a>
             <a href={`${repo}/blob/master/SECURITY.md`}>Security</a>
           </div>
         </div>

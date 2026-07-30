@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Onyx Launcher releases</title>
+    <link>https://lonestill.github.io/</link>
+    <description>Release news for the open-source desktop Minecraft launcher for Windows and Linux.</description>
+    <language>en</language>
+    <atom:link href="https://lonestill.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Onyx Launcher 1.6.3: isolated instances, Modrinth, managed Java, and diagnostics</title>
+      <link>https://lonestill.github.io/blog/onyx-launcher-1-6-3/</link>
+      <guid isPermaLink="true">https://lonestill.github.io/blog/onyx-launcher-1-6-3/</guid>
+      <pubDate>Thu, 30 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Onyx Launcher 1.6.3 is available for Windows and Linux with isolated Minecraft instances, integrated Modrinth discovery, managed Eclipse Temurin runtimes, crash diagnostics, Crash Bisect, and portable backups.</description>
+    </item>
+  </channel>
+</rss>
