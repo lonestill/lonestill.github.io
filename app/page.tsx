@@ -142,6 +142,7 @@ export default function Home() {
           <a href="#screens">Screens</a>
           <a href="#faq">FAQ</a>
           <a href="#download">Download</a>
+          <a href="/blog/onyx-launcher-1-6-3">Release story</a>
           <a href="/press">Press kit</a>
           <a href={repo}>GitHub</a>
         </div>
@@ -364,6 +365,7 @@ mod scan       148 checked
           <div>
             <a href={repo}>GitHub</a>
             <a href={release}>Release 1.6.3</a>
+            <a href="/blog/onyx-launcher-1-6-3">Release story</a>
             <a href="/press">Press kit</a>
             <a href={`${repo}/blob/master/SECURITY.md`}>Security</a>
           </div>

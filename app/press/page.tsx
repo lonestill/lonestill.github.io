@@ -76,6 +76,7 @@ export default function PressKit() {
         </a>
         <div className="navLinks">
           <a href="/">Overview</a>
+          <a href="/blog/onyx-launcher-1-6-3">Release story</a>
           <a href="/#download">Download</a>
           <a href={repo}>GitHub</a>
         </div>
@@ -210,6 +211,7 @@ export default function PressKit() {
           </p>
           <div>
             <a href="/">Overview</a>
+            <a href="/blog/onyx-launcher-1-6-3">Release story</a>
             <a href={repo}>GitHub</a>
             <a href="mailto:admin@lonestill.uk">Email</a>
           </div>

@@ -902,6 +902,208 @@ footer {
   font-size: 15px;
 }
 
+.storyPage {
+  background:
+    radial-gradient(circle at 84% 7%, rgba(183, 244, 74, 0.13), transparent 30rem),
+    var(--black);
+}
+
+.storyHero {
+  max-width: 1020px;
+  padding-top: 105px;
+  padding-bottom: 80px;
+}
+
+.storyHero h1 {
+  max-width: 980px;
+  margin: 20px 0 28px;
+  font-size: clamp(52px, 7vw, 92px);
+  line-height: 0.95;
+}
+
+.storyHero .lede {
+  max-width: 770px;
+}
+
+.storyMeta {
+  margin-top: 60px;
+  padding-top: 23px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  border-top: 1px solid var(--line);
+  color: #858b82;
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.storyLead {
+  margin-bottom: 120px;
+}
+
+.storyLead img {
+  width: 100%;
+  border: 1px solid var(--line);
+  box-shadow: 0 45px 100px rgba(0, 0, 0, 0.48);
+}
+
+.storyLead figcaption,
+.storyProse figcaption {
+  margin-top: 12px;
+  color: #777d75;
+  font-size: 10px;
+}
+
+.storyBody {
+  padding-bottom: 130px;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 760px);
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.storyAside {
+  height: fit-content;
+  position: sticky;
+  top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.storyAside .kicker {
+  margin-bottom: 11px;
+}
+
+.storyAside a {
+  padding-bottom: 13px;
+  border-bottom: 1px solid var(--line);
+  color: #8e948b;
+  font-size: 11px;
+  transition: color 160ms ease;
+}
+
+.storyAside a:hover {
+  color: var(--acid);
+}
+
+.storyProse section {
+  padding: 10px 0 85px;
+  scroll-margin-top: 30px;
+}
+
+.storyProse h2 {
+  margin: 0 0 28px;
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.storyProse h3 {
+  margin: 7px 0 0;
+  font-size: 25px;
+  line-height: 1.15;
+}
+
+.storyProse p {
+  margin: 0 0 23px;
+  color: #b8bdb4;
+  font: 18px/1.78 Georgia, serif;
+}
+
+.storyProse figure {
+  margin: 44px 0 0;
+}
+
+.storyProse figure img {
+  width: 100%;
+  border: 1px solid var(--line);
+}
+
+.storyPoints {
+  margin: 5px 0 90px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.storyPoints div {
+  min-height: 150px;
+  padding: 27px;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  background: var(--panel);
+}
+
+.storyPoints b {
+  font-size: 14px;
+}
+
+.storyPoints span {
+  color: #898f86;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.quickStartGrid {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.quickStartGrid > div {
+  padding: 25px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.quickStartGrid small,
+.storyCta small {
+  color: var(--acid);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+}
+
+.quickStartGrid pre {
+  margin: 18px 0;
+  padding: 17px;
+  overflow-x: auto;
+  background: #0a0b09;
+  border: 1px solid #292c27;
+}
+
+.quickStartGrid code {
+  color: #d9ddd4;
+  font: 11px/1.7 Consolas, monospace;
+}
+
+.quickStartGrid a {
+  color: var(--acid);
+  font-size: 11px;
+}
+
+.storyCta {
+  margin-top: 48px;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  border: 1px solid rgba(183, 244, 74, 0.35);
+  background: rgba(183, 244, 74, 0.07);
+}
+
+.storyCta > div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 @media (max-width: 980px) {
   .hero {
     grid-template-columns: 1fr;
@@ -939,6 +1141,21 @@ footer {
   .footerInner {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .storyBody {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .storyAside {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .storyAside .kicker {
+    grid-column: 1 / -1;
   }
 }
 
@@ -1021,6 +1238,32 @@ footer {
 
   .footerInner > div:last-child {
     flex-wrap: wrap;
+  }
+
+  .storyHero {
+    padding-top: 65px;
+  }
+
+  .storyLead {
+    margin-bottom: 85px;
+  }
+
+  .storyBody {
+    padding-bottom: 90px;
+  }
+
+  .storyPoints,
+  .storyAside {
+    grid-template-columns: 1fr;
+  }
+
+  .storyAside .kicker {
+    grid-column: auto;
+  }
+
+  .storyCta {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
