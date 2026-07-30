@@ -4,9 +4,8 @@ import "./globals.css";
 const title = "Onyx Launcher — A modern Minecraft launcher";
 const description =
   "Open-source Minecraft launcher for Windows and Linux with isolated instances, Modrinth modpacks, automatic Java, crash diagnostics, and safe backups.";
-const socialImage =
-  "https://raw.githubusercontent.com/lonestill/onyx-launcher/master/artifacts/home.png";
 const website = "https://lonestill.github.io";
+const socialImage = `${website}/social-card.png`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(website),
@@ -32,7 +31,14 @@ export const metadata: Metadata = {
     url: website,
     siteName: "Onyx Launcher",
     type: "website",
-    images: [{ url: socialImage, width: 1600, height: 1000, alt: "Onyx Launcher home screen" }]
+    images: [
+      {
+        url: socialImage,
+        width: 1200,
+        height: 630,
+        alt: "Onyx Launcher — open-source Minecraft launcher for Windows and Linux"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
