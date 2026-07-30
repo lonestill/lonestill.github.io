@@ -1,5 +1,6 @@
 const repo = "https://github.com/lonestill/onyx-launcher";
 const release = `${repo}/releases/tag/v1.6.3`;
+const website = "https://lonestill.github.io";
 const windows =
   `${repo}/releases/download/v1.6.3/Onyx.Launcher.Setup.1.6.3.exe`;
 const portable =
@@ -47,12 +48,41 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Onyx Launcher",
+  alternateName: "Onyx",
+  url: website,
+  image: `${website}/social-card.png`,
+  screenshot: [
+    `${website}/home.png`,
+    `${website}/library.png`,
+    `${website}/discover.png`,
+    `${website}/instance.png`
+  ],
   applicationCategory: "GameApplication",
+  applicationSubCategory: "Minecraft launcher",
   operatingSystem: "Windows 10, Windows 11, Linux",
   softwareVersion: "1.6.3",
-  license: "https://opensource.org/license/mit",
-  downloadUrl: release,
-  codeRepository: repo,
+  releaseNotes: release,
+  downloadUrl: `${repo}/releases/latest`,
+  license: `${repo}/blob/master/LICENSE`,
+  isAccessibleForFree: true,
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD"
+  },
+  author: {
+    "@type": "Person",
+    name: "lonestill",
+    url: "https://github.com/lonestill"
+  },
+  sameAs: [repo, release],
+  featureList: [
+    "Isolated Minecraft instances",
+    "Built-in Modrinth modpack discovery",
+    "Automatic Java management",
+    "Crash Bisect and performance diagnostics",
+    "World snapshots and safe backups"
+  ],
   description:
     "Open-source Minecraft launcher with isolated instances, Modrinth integration, automatic Java, crash diagnostics, and safe backups."
 };
@@ -62,7 +92,9 @@ export default function Home() {
     <main>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema).replace(/</g, "\\u003c")
+        }}
       />
 
       <nav className="nav shell" aria-label="Primary navigation">
