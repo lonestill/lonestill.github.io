@@ -6,6 +6,7 @@ const website = "https://lonestill.github.io";
 const appImage =
   `${repo}/releases/download/v1.6.3/Onyx-Launcher-1.6.3-x86_64.AppImage`;
 const appImageHub = "https://appimage.github.io/Onyx_Launcher/";
+const pad = `${website}/pad/onyx-launcher.xml`;
 const windows =
   `${repo}/releases/download/v1.6.3/Onyx.Launcher.Setup.1.6.3.exe`;
 
@@ -197,6 +198,7 @@ export default function PressKit() {
             <a href={appImage}><small>LINUX</small><b>AppImage</b></a>
             <a href={appImageHub}><small>CATALOG</small><b>AppImageHub</b></a>
             <a href={`${release}#assets`}><small>INTEGRITY</small><b>SHA-256 checksums</b></a>
+            <a href={pad}><small>DIRECTORIES</small><b>PAD metadata</b></a>
           </div>
         </div>
       </section>
