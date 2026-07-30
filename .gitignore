@@ -2,4 +2,8 @@
 dist/
 node_modules/
 npm-debug.log*
+*.log
 out/
+*.tsbuildinfo
+.vinext/
+.wrangler/
