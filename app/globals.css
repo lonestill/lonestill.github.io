@@ -615,8 +615,228 @@ footer {
   font-size: 10px;
 }
 
+.pressPage {
+  background:
+    radial-gradient(circle at 79% 6%, rgba(183, 244, 74, 0.14), transparent 27rem),
+    var(--black);
+}
+
+.pressHero {
+  min-height: 650px;
+  padding: 92px 0 110px;
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.pressHero h1 {
+  margin-top: 20px;
+  font-size: clamp(50px, 5.8vw, 82px);
+}
+
+.pressCard {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.19);
+  border-radius: 9px;
+  background: var(--panel);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.48);
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.pressCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(183, 244, 74, 0.6);
+}
+
+.pressCard span {
+  padding: 15px 18px;
+  display: block;
+  color: #b9beb5;
+  font-size: 11px;
+}
+
+.pressSection {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.pressSectionHead {
+  max-width: 700px;
+  margin-bottom: 45px;
+}
+
+.pressSectionHead h2 {
+  margin: 18px 0 16px;
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.pressSectionHead > p:last-child:not(.kicker) {
+  color: #9da29a;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.factGrid {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.factGrid div {
+  min-height: 135px;
+  padding: 25px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.factGrid dt {
+  margin-bottom: 23px;
+  color: #777d75;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.factGrid dd {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.factNote {
+  max-width: 760px;
+  margin: 24px 0 0;
+  color: #777d75;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.pressCopy,
+.pressLinks {
+  background: #e5e3dc;
+  color: #11130f;
+}
+
+.pressCopy .kicker,
+.pressLinks .kicker {
+  color: #55741b;
+}
+
+.copyGrid {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: 1px;
+  background: #b9bbb4;
+  border: 1px solid #b9bbb4;
+}
+
+.copyGrid article {
+  padding: 35px;
+  background: #f1f0ea;
+}
+
+.copyGrid small {
+  display: block;
+  margin-bottom: 26px;
+  color: #667050;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+}
+
+.copyGrid p {
+  margin: 0;
+  font: 20px/1.65 Georgia, serif;
+}
+
+.pressScreens {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.pressScreens figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.pressScreens figure > a {
+  display: block;
+  overflow: hidden;
+}
+
+.pressScreens img {
+  width: 100%;
+  transition: transform 220ms ease;
+}
+
+.pressScreens figure:hover img {
+  transform: scale(1.012);
+}
+
+.pressScreens figcaption {
+  padding: 17px 19px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.pressScreens figcaption b {
+  font-size: 12px;
+}
+
+.pressScreens figcaption a {
+  color: var(--acid);
+  font-size: 10px;
+}
+
+.resourceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #b9bbb4;
+  border: 1px solid #b9bbb4;
+}
+
+.resourceGrid a {
+  min-height: 132px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #f1f0ea;
+  transition: background 160ms ease;
+}
+
+.resourceGrid a:hover {
+  background: var(--acid-soft);
+}
+
+.resourceGrid small {
+  color: #667050;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+}
+
+.resourceGrid b {
+  font-size: 15px;
+}
+
 @media (max-width: 980px) {
   .hero {
+    grid-template-columns: 1fr;
+    padding-top: 62px;
+  }
+
+  .pressHero {
     grid-template-columns: 1fr;
     padding-top: 62px;
   }
@@ -632,6 +852,10 @@ footer {
 
   .featureGrid,
   .downloadGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .factGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -690,7 +914,8 @@ footer {
   }
 
   .section,
-  .download {
+  .download,
+  .pressSection {
     padding-top: 88px;
     padding-bottom: 88px;
   }
@@ -698,6 +923,9 @@ footer {
   .featureGrid,
   .downloadGrid,
   .screenGrid,
+  .pressScreens,
+  .resourceGrid,
+  .copyGrid,
   .splitHead {
     grid-template-columns: 1fr;
   }

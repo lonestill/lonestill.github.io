@@ -106,6 +106,7 @@ export default function Home() {
           <a href="#features">Features</a>
           <a href="#screens">Screens</a>
           <a href="#download">Download</a>
+          <a href="/press">Press kit</a>
           <a href={repo}>GitHub</a>
         </div>
       </nav>
@@ -303,6 +304,7 @@ mod scan       148 checked
           <div>
             <a href={repo}>GitHub</a>
             <a href={release}>Release 1.6.3</a>
+            <a href="/press">Press kit</a>
             <a href={`${repo}/blob/master/SECURITY.md`}>Security</a>
           </div>
         </div>

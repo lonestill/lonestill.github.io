@@ -7,8 +7,9 @@ This repository contains the official website for
 Minecraft launcher for Windows and Linux.
 
 The site presents the launcher's main features, English interface screenshots,
-verified release downloads, and installation options. Production is published
-at [lonestill.github.io](https://lonestill.github.io).
+verified release downloads, installation options, and a reusable
+[press kit](https://lonestill.github.io/press). Production is published at
+[lonestill.github.io](https://lonestill.github.io).
 
 ## Local development
 
@@ -30,4 +31,3 @@ GitHub Pages.
 
 Launcher documentation, issues, and releases live in the
 [main Onyx Launcher repository](https://github.com/lonestill/onyx-launcher).
-
