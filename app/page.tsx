@@ -1,16 +1,16 @@
+import latest from "../data/onyx-release.json";
+
 const repo = "https://github.com/lonestill/onyx-launcher";
-const release = `${repo}/releases/tag/v1.6.3`;
+const release = latest.releaseUrl;
 const website = "https://lonestill.github.io";
-const windows =
-  `${repo}/releases/download/v1.6.3/Onyx.Launcher.Setup.1.6.3.exe`;
-const portable =
-  `${repo}/releases/download/v1.6.3/Onyx.Launcher.1.6.3.exe`;
-const appImage =
-  `${repo}/releases/download/v1.6.3/Onyx-Launcher-1.6.3-x86_64.AppImage`;
-const linuxTar =
-  `${repo}/releases/download/v1.6.3/Onyx-Launcher-1.6.3-linux-x64.tar.gz`;
+const windows = latest.windowsInstallerUrl;
+const portable = latest.windowsPortableUrl;
+const appImage = latest.appImageUrl;
+const linuxTar = latest.linuxTarUrl;
 const scoop = "https://github.com/lonestill/scoop-onyx";
 const appImageHub = "https://appimage.github.io/Onyx_Launcher/";
+const goodFirstIssues = `${repo}/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22good%20first%20issue%22`;
+const contributorGuide = `${repo}/blob/master/CONTRIBUTING.md`;
 
 const features = [
   {
@@ -61,7 +61,7 @@ const faqs = [
     answer:
       "Download it, make the file executable, and launch it. Desktop environments can also expose the executable permission in the file properties.",
     command:
-      "chmod +x Onyx-Launcher-1.6.3-x86_64.AppImage && ./Onyx-Launcher-1.6.3-x86_64.AppImage"
+      `chmod +x Onyx-Launcher-${latest.version}-x86_64.AppImage && ./Onyx-Launcher-${latest.version}-x86_64.AppImage`
   },
   {
     question: "Does Onyx include Minecraft or bypass its license?",
@@ -96,7 +96,7 @@ const schema = {
   applicationCategory: "GameApplication",
   applicationSubCategory: "Desktop Minecraft launcher",
   operatingSystem: "Windows 10, Windows 11, Linux",
-  softwareVersion: "1.6.3",
+  softwareVersion: latest.version,
   releaseNotes: release,
   downloadUrl: `${repo}/releases/latest`,
   license: `${repo}/blob/master/LICENSE`,
@@ -141,6 +141,7 @@ export default function Home() {
         <div className="navLinks">
           <a href="#features">Features</a>
           <a href="#screens">Screens</a>
+          <a href="#contribute">Contribute</a>
           <a href="#faq">FAQ</a>
           <a href="#download">Download</a>
           <a href="/blog/onyx-launcher-1-6-3">Release story</a>
@@ -153,7 +154,7 @@ export default function Home() {
         <div className="heroCopy">
           <div className="eyebrow">
             <span className="statusDot" />
-            Version 1.6.3 · Windows &amp; Linux
+            Version {latest.version} · Windows &amp; Linux
           </div>
           <h1>
             Minecraft,
@@ -183,7 +184,7 @@ export default function Home() {
             <div className="windowBar">
               <div><span /><span /><span /></div>
               <small>ONYX LAUNCHER</small>
-              <b>1.6.3</b>
+              <b>{latest.version}</b>
             </div>
             <img src="/home.png" alt="Onyx Launcher showing the home dashboard" />
           </div>
@@ -289,6 +290,40 @@ mod scan       148 checked
         </div>
       </section>
 
+      <section className="section shell" id="contribute">
+        <div className="sectionHead splitHead">
+          <div>
+            <p className="kicker">BUILD WITH US</p>
+            <h2>Your first Onyx PR can be small.</h2>
+          </div>
+          <p>
+            Curated issues include acceptance criteria, the files to start from,
+            and exact verification steps. Pick an unassigned task and begin.
+          </p>
+        </div>
+        <div className="featureGrid">
+          <article className="feature">
+            <span>UI</span>
+            <h3>Improve a visible workflow</h3>
+            <p>Add loader filters, sharpen catalog search, or make download errors easier to share.</p>
+          </article>
+          <article className="feature">
+            <span>TEST</span>
+            <h3>Protect a real boundary</h3>
+            <p>Add focused coverage for release assets, downloads, platform behavior, or recovery tools.</p>
+          </article>
+          <article className="feature">
+            <span>DOC</span>
+            <h3>Make the project easier to enter</h3>
+            <p>Turn working launcher behavior into practical guides and architecture notes.</p>
+          </article>
+        </div>
+        <div className="heroActions">
+          <a className="button primary" href={goodFirstIssues}>Browse good first issues</a>
+          <a className="button secondary" href={contributorGuide}>Read the contributor guide</a>
+        </div>
+      </section>
+
       <section className="faq section" id="faq">
         <div className="shell">
           <div className="sectionHead splitHead">
@@ -316,7 +351,7 @@ mod scan       148 checked
       <section className="download" id="download">
         <div className="shell">
           <div className="sectionHead">
-            <p className="kicker">DOWNLOAD ONYX 1.6.3</p>
+            <p className="kicker">DOWNLOAD ONYX {latest.version}</p>
             <h2>Pick a platform. Keep your worlds.</h2>
           </div>
           <div className="downloadGrid">
@@ -366,7 +401,7 @@ mod scan       148 checked
           </p>
           <div>
             <a href={repo}>GitHub</a>
-            <a href={release}>Release 1.6.3</a>
+            <a href={release}>Release {latest.version}</a>
             <a href="/blog/onyx-launcher-1-6-3">Release story</a>
             <a href="/press">Press kit</a>
             <a href="/feed.xml">RSS</a>

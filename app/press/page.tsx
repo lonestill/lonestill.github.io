@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
+import latest from "../../data/onyx-release.json";
 
 const repo = "https://github.com/lonestill/onyx-launcher";
-const release = `${repo}/releases/tag/v1.6.3`;
+const release = latest.releaseUrl;
 const website = "https://lonestill.github.io";
-const appImage =
-  `${repo}/releases/download/v1.6.3/Onyx-Launcher-1.6.3-x86_64.AppImage`;
+const appImage = latest.appImageUrl;
 const appImageHub = "https://appimage.github.io/Onyx_Launcher/";
 const pad = `${website}/pad/onyx-launcher.xml`;
-const windows =
-  `${repo}/releases/download/v1.6.3/Onyx.Launcher.Setup.1.6.3.exe`;
+const windows = latest.windowsInstallerUrl;
 
 export const metadata: Metadata = {
   title: "Press kit — Onyx Launcher",
@@ -35,7 +34,7 @@ export const metadata: Metadata = {
 };
 
 const facts = [
-  ["Latest release", "1.6.3 · July 30, 2026"],
+  ["Latest release", `${latest.version} · ${latest.publishedLabel}`],
   ["Platforms", "Windows 10/11 and modern x64 Linux"],
   ["License", "MIT"],
   ["Technology", "Electron, React, TypeScript"],
@@ -97,7 +96,7 @@ export default function PressKit() {
             and reusable artwork for editorial coverage of Onyx Launcher.
           </p>
           <div className="heroActions">
-            <a className="button primary" href={release}>View release 1.6.3</a>
+            <a className="button primary" href={release}>View release {latest.version}</a>
             <a className="button secondary" href="mailto:admin@lonestill.uk">
               Contact the developer
             </a>
@@ -193,7 +192,7 @@ export default function PressKit() {
           <div className="resourceGrid">
             <a href={website}><small>WEBSITE</small><b>lonestill.github.io</b></a>
             <a href={repo}><small>SOURCE</small><b>GitHub repository</b></a>
-            <a href={release}><small>RELEASE NOTES</small><b>Onyx 1.6.3</b></a>
+            <a href={release}><small>RELEASE NOTES</small><b>Onyx {latest.version}</b></a>
             <a href={windows}><small>WINDOWS</small><b>Installer</b></a>
             <a href={appImage}><small>LINUX</small><b>AppImage</b></a>
             <a href={appImageHub}><small>CATALOG</small><b>AppImageHub</b></a>

@@ -34,9 +34,9 @@
   </Company_Info>
   <Program_Info>
     <Program_Name>Onyx Launcher</Program_Name>
-    <Program_Version>1.6.3</Program_Version>
-    <Program_Release_Month>7</Program_Release_Month>
-    <Program_Release_Day>30</Program_Release_Day>
+    <Program_Version>1.6.5</Program_Version>
+    <Program_Release_Month>9</Program_Release_Month>
+    <Program_Release_Day>1</Program_Release_Day>
     <Program_Release_Year>2026</Program_Release_Year>
     <Program_Cost_Dollars>0.00</Program_Cost_Dollars>
     <Program_Cost_Other_Code>USD</Program_Cost_Other_Code>
@@ -52,9 +52,9 @@
     <Program_Categories>Games,Minecraft,Utilities</Program_Categories>
     <Program_System_Requirements>Windows 10 or 11 x64, or a modern x64 Linux distribution; internet access; a licensed Microsoft account for the full Minecraft: Java Edition experience.</Program_System_Requirements>
     <File_Info>
-      <File_Size_Bytes>103763860</File_Size_Bytes>
-      <File_Size_K>101332</File_Size_K>
-      <File_Size_MB>98.96</File_Size_MB>
+      <File_Size_Bytes>103874082</File_Size_Bytes>
+      <File_Size_K>101440</File_Size_K>
+      <File_Size_MB>99.06</File_Size_MB>
     </File_Info>
     <Expire_Info>
       <Has_Expire_Info>N</Has_Expire_Info>
@@ -85,10 +85,10 @@
       <Application_XML_File_URL>https://lonestill.github.io/pad/onyx-launcher.xml</Application_XML_File_URL>
     </Application_URLs>
     <Download_URLs>
-      <Primary_Download_URL>https://github.com/lonestill/onyx-launcher/releases/download/v1.6.3/Onyx.Launcher.Setup.1.6.3.exe</Primary_Download_URL>
-      <Secondary_Download_URL>https://github.com/lonestill/onyx-launcher/releases/download/v1.6.3/Onyx.Launcher.1.6.3.exe</Secondary_Download_URL>
-      <Additional_Download_URL_1>https://github.com/lonestill/onyx-launcher/releases/download/v1.6.3/Onyx-Launcher-1.6.3-x86_64.AppImage</Additional_Download_URL_1>
-      <Additional_Download_URL_2>https://github.com/lonestill/onyx-launcher/releases/download/v1.6.3/Onyx-Launcher-1.6.3-linux-x64.tar.gz</Additional_Download_URL_2>
+      <Primary_Download_URL>https://github.com/lonestill/onyx-launcher/releases/download/v1.6.5/Onyx.Launcher.Setup.1.6.5.exe</Primary_Download_URL>
+      <Secondary_Download_URL>https://github.com/lonestill/onyx-launcher/releases/download/v1.6.5/Onyx.Launcher.1.6.5.exe</Secondary_Download_URL>
+      <Additional_Download_URL_1>https://github.com/lonestill/onyx-launcher/releases/download/v1.6.5/Onyx-Launcher-1.6.5-x86_64.AppImage</Additional_Download_URL_1>
+      <Additional_Download_URL_2>https://github.com/lonestill/onyx-launcher/releases/download/v1.6.5/Onyx-Launcher-1.6.5-linux-x64.tar.gz</Additional_Download_URL_2>
     </Download_URLs>
   </Web_Info>
   <Permissions>
