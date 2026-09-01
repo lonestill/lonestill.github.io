@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "sync:release": "node scripts/sync-release.mjs",
     "build": "vinext build",
-    "postbuild": "node scripts/finalize-sites-build.mjs",
     "start": "next start",
     "dev:vinext": "vinext dev --port 3001",
     "build:vinext": "vinext build",
