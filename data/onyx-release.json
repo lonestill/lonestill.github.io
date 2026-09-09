@@ -1,9 +1,9 @@
 {
-  "version": "1.6.5",
-  "publishedLabel": "September 1, 2026",
-  "releaseUrl": "https://github.com/lonestill/onyx-launcher/releases/tag/v1.6.5",
-  "windowsInstallerUrl": "https://github.com/lonestill/onyx-launcher/releases/download/v1.6.5/Onyx.Launcher.Setup.1.6.5.exe",
-  "windowsPortableUrl": "https://github.com/lonestill/onyx-launcher/releases/download/v1.6.5/Onyx.Launcher.1.6.5.exe",
-  "appImageUrl": "https://github.com/lonestill/onyx-launcher/releases/download/v1.6.5/Onyx-Launcher-1.6.5-x86_64.AppImage",
-  "linuxTarUrl": "https://github.com/lonestill/onyx-launcher/releases/download/v1.6.5/Onyx-Launcher-1.6.5-linux-x64.tar.gz"
+  "version": "1.6.8",
+  "publishedLabel": "September 9, 2026",
+  "releaseUrl": "https://github.com/lonestill/onyx-launcher/releases/tag/v1.6.8",
+  "windowsInstallerUrl": "https://github.com/lonestill/onyx-launcher/releases/download/v1.6.8/Onyx.Launcher.Setup.1.6.8.exe",
+  "windowsPortableUrl": "https://github.com/lonestill/onyx-launcher/releases/download/v1.6.8/Onyx.Launcher.1.6.8.exe",
+  "appImageUrl": "https://github.com/lonestill/onyx-launcher/releases/download/v1.6.8/Onyx-Launcher-1.6.8-x86_64.AppImage",
+  "linuxTarUrl": "https://github.com/lonestill/onyx-launcher/releases/download/v1.6.8/Onyx-Launcher-1.6.8-linux-x64.tar.gz"
 }

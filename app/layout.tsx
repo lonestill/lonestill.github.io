@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const title = "Onyx Launcher — Open-source desktop Minecraft launcher";
+const title = "Onyx Launcher — Modern Open-Source Minecraft Launcher";
 const description =
-  "Open-source desktop Minecraft launcher for Windows and Linux with isolated instances, Modrinth modpacks, automatic Java, crash diagnostics, and safe backups.";
+  "Fast, modern open-source desktop Minecraft launcher with built-in runtime telemetry, Onyx Probe FPS recording, Modrinth integration, automatic Java, and Ghost Mode.";
 const website = "https://lonestill.github.io";
 const socialImage = `${website}/social-card.png`;
 

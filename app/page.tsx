@@ -1,12 +1,16 @@
 import latest from "../data/onyx-release.json";
 
 const repo = "https://github.com/lonestill/onyx-launcher";
+const version = latest.version;
 const release = latest.releaseUrl;
 const website = "https://lonestill.github.io";
+
 const windows = latest.windowsInstallerUrl;
 const portable = latest.windowsPortableUrl;
 const appImage = latest.appImageUrl;
 const linuxTar = latest.linuxTarUrl;
+const deb = `${repo}/releases/download/v${version}/onyx-launcher_${version}_amd64.deb`;
+const rpm = `${repo}/releases/download/v${version}/onyx-launcher-${version}.x86_64.rpm`;
 const scoop = "https://github.com/lonestill/scoop-onyx";
 const appImageHub = "https://appimage.github.io/Onyx_Launcher/";
 const goodFirstIssues = `${repo}/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22good%20first%20issue%22`;
@@ -15,68 +19,68 @@ const contributorGuide = `${repo}/blob/master/CONTRIBUTING.md`;
 const features = [
   {
     mark: "01",
-    title: "Instances stay isolated",
-    text: "Every world, loader, Java runtime, memory profile, and launch option stays attached to the instance it belongs to."
+    title: "Onyx Probe: In-Engine FPS & 1% Lows",
+    text: "A built-in Java agent hooks LWJGL/GLFW directly at bytecode level. Collects nanosecond-accurate frame times, average FPS, and stutters without external overlays or tools on macOS, Windows, and Linux."
   },
   {
     mark: "02",
-    title: "Modrinth is built in",
-    text: "Search modpacks and mods, inspect compatibility, install updates with previews, and keep your library organized."
+    title: "Ghost Mode: Zero Gaming Overhead",
+    text: "When Minecraft launches, Onyx releases its window, renderer, and GPU process from RAM. Zero unnecessary memory or CPU cycles consumed while you play."
   },
   {
     mark: "03",
-    title: "Java takes care of itself",
-    text: "Onyx selects and installs Eclipse Temurin 8, 17, or 21 for the Minecraft version you want to run."
+    title: "Real-time Downloads with Speed & ETA",
+    text: "Smooth download progress, moving-average transfer rate in MB/s, and accurate completion estimates for large modpacks, assets, and runtimes."
   },
   {
     mark: "04",
-    title: "Failures leave evidence",
-    text: "Crash Bisect, log analysis, Flight Recorder, and support bundles turn a broken launch into something you can diagnose."
+    title: "Modrinth Catalog & 5 Loaders",
+    text: "Browse, install, and update modpacks and mods with one click. Native isolated support for Fabric, NeoForge, Forge, Quilt, and Vanilla."
   },
   {
     mark: "05",
-    title: "Worlds get guard rails",
-    text: "World Guard snapshots, safe restoration, operating-system trash, and portable backups reduce destructive mistakes."
+    title: "Flight Recorder & Crash Diagnostics",
+    text: "Automatic log analysis, memory tracking, GC pause detection, and Crash Bisect to identify conflicting mods across controlled launches."
   },
   {
     mark: "06",
-    title: "No mystery binaries",
-    text: "The source is MIT licensed, releases include SHA-256 checksums, and builds run in public CI for Windows and Linux."
+    title: "World Guard & Safe Rollbacks",
+    text: "Automatic safety snapshots before dangerous operations, OS trash integration, and transactional mod profile rollbacks to keep saves safe."
   }
 ];
 
 const faqs = [
   {
-    question: "Is this a desktop launcher?",
+    question: "How does Onyx record FPS and frame times?",
     answer:
-      "Yes. This Onyx Launcher project by lonestill publishes Windows x64 and Linux x64 desktop builds only. It is not connected to similarly named Android launchers."
+      "Onyx bundles an in-house lightweight Java agent called Onyx Probe. When FPS capture is enabled, it instruments GLFW and LWJGL frame swaps at runtime, measuring nanosecond-precise frame intervals without requiring external software like PresentMon or MangoHud."
   },
   {
-    question: "Do I need to install Java first?",
+    question: "What is Ghost Mode?",
     answer:
-      "No. Onyx selects and installs the appropriate Eclipse Temurin 8, 17, or 21 runtime for the Minecraft version you launch."
+      "When Minecraft launches, Ghost Mode automatically unloads the Onyx window, WebContents, and GPU processes from system memory. This ensures 100% of your RAM and GPU headroom remains available for Minecraft shaders and heavy modpacks."
+  },
+  {
+    question: "Do I need to install Java manually?",
+    answer:
+      "No. Onyx automatically detects, downloads, and isolates the appropriate Eclipse Temurin runtime (Java 8, 17, or 21) required for your specific Minecraft version and mod loader."
   },
   {
     question: "How do I run the Linux AppImage?",
     answer:
-      "Download it, make the file executable, and launch it. Desktop environments can also expose the executable permission in the file properties.",
+      "Download the AppImage, make it executable, and run it. Alternatively, download the .deb or .rpm package for your Linux distribution.",
     command:
-      `chmod +x Onyx-Launcher-${latest.version}-x86_64.AppImage && ./Onyx-Launcher-${latest.version}-x86_64.AppImage`
+      `chmod +x Onyx-Launcher-${version}-x86_64.AppImage && ./Onyx-Launcher-${version}-x86_64.AppImage`
   },
   {
-    question: "Does Onyx include Minecraft or bypass its license?",
+    question: "Does Onyx require an official Minecraft account?",
     answer:
-      "No. Game files come from Mojang and third-party content comes from URLs supplied by Modrinth. A licensed Microsoft account is required for the full Java Edition experience; the official demo can run without an account."
+      "You can sign in securely with your Microsoft account via OAuth Device Flow (Onyx never handles your password). Offline mode with custom skin support is also available for offline play."
   },
   {
-    question: "Can I verify the downloads?",
+    question: "Can I verify the binary downloads?",
     answer:
-      "Yes. Every release includes separate SHA-256 checksum files for Windows and Linux, and the build workflows are public. Windows binaries are currently unsigned, so SmartScreen may still display a warning."
-  },
-  {
-    question: "Where are instances and worlds stored?",
-    answer:
-      "They remain in local, platform-specific Onyx data directories. Each instance stays isolated, while World Guard snapshots, portable backups, and operating-system trash protect against destructive mistakes."
+      "Yes. Every GitHub Release publishes SHA-256 checksums alongside every binary, and all builds are compiled transparently through public GitHub Actions CI."
   }
 ];
 
@@ -91,12 +95,13 @@ const schema = {
     `${website}/home.png`,
     `${website}/library.png`,
     `${website}/discover.png`,
-    `${website}/instance.png`
+    `${website}/instance.png`,
+    `${website}/settings.png`
   ],
   applicationCategory: "GameApplication",
   applicationSubCategory: "Desktop Minecraft launcher",
-  operatingSystem: "Windows 10, Windows 11, Linux",
-  softwareVersion: latest.version,
+  operatingSystem: "Windows 10, Windows 11, Linux, macOS",
+  softwareVersion: version,
   releaseNotes: release,
   downloadUrl: `${repo}/releases/latest`,
   license: `${repo}/blob/master/LICENSE`,
@@ -113,14 +118,15 @@ const schema = {
   },
   sameAs: [repo, release],
   featureList: [
-    "Isolated Minecraft instances",
-    "Built-in Modrinth modpack discovery",
-    "Automatic Java management",
-    "Crash Bisect and performance diagnostics",
-    "World snapshots and safe backups"
+    "Onyx Probe in-engine FPS & frame-time recording",
+    "Ghost Mode zero gaming overhead",
+    "Built-in Modrinth modpack discovery & installation",
+    "Automatic Temurin Java runtime management",
+    "Crash Bisect and Flight Recorder diagnostics",
+    "World Guard snapshots and safe backups"
   ],
   description:
-    "Open-source desktop Minecraft launcher for Windows and Linux with isolated instances, Modrinth integration, automatic Java, crash diagnostics, and safe backups."
+    "Open-source desktop Minecraft launcher with built-in runtime telemetry, Modrinth modpacks, automatic Java, Onyx Probe FPS recording, and Ghost Mode."
 };
 
 export default function Home() {
@@ -141,11 +147,10 @@ export default function Home() {
         <div className="navLinks">
           <a href="#features">Features</a>
           <a href="#screens">Screens</a>
-          <a href="#contribute">Contribute</a>
           <a href="#faq">FAQ</a>
           <a href="#download">Download</a>
-          <a href="/blog/onyx-launcher-1-6-3">Release story</a>
-          <a href="/press">Press kit</a>
+          <a href={goodFirstIssues}>Good first issues</a>
+          <a href={contributorGuide}>Contributing</a>
           <a href={repo}>GitHub</a>
         </div>
       </nav>
@@ -154,16 +159,16 @@ export default function Home() {
         <div className="heroCopy">
           <div className="eyebrow">
             <span className="statusDot" />
-            Version {latest.version} · Windows &amp; Linux
+            Version {version} · Windows &amp; Linux
           </div>
           <h1>
             Minecraft,
             <br />
-            without the <em>launcher friction.</em>
+            without the <em>launcher bloat.</em>
           </h1>
           <p className="lede">
-            A focused, open-source launcher for clean instances, Modrinth content,
-            automatic Java, useful diagnostics, and safer worlds.
+            A fast, open-source launcher built with React and Electron. Featuring in-engine
+            telemetry via Onyx Probe, zero-overhead Ghost Mode, native Modrinth browsing, and safe world backups.
           </p>
           <div className="heroActions">
             <a className="button primary" href={windows}>
@@ -171,11 +176,11 @@ export default function Home() {
               <span aria-hidden="true">↘</span>
             </a>
             <a className="button secondary" href={appImage}>
-              Get the AppImage
+              Get AppImage (Linux)
             </a>
           </div>
           <p className="microcopy">
-            MIT licensed · SHA-256 checksums · no bundled Minecraft files
+            MIT licensed · SHA-256 verified · 54 test suites · 100% Free &amp; Open Source
           </p>
         </div>
 
@@ -184,20 +189,20 @@ export default function Home() {
             <div className="windowBar">
               <div><span /><span /><span /></div>
               <small>ONYX LAUNCHER</small>
-              <b>{latest.version}</b>
+              <b>{version}</b>
             </div>
-            <img src="/home.png" alt="Onyx Launcher showing the home dashboard" />
+            <img src="/home.png" alt="Onyx Launcher showing the modern control center dashboard" />
           </div>
           <div className="floatCard loaderCard">
             <small>LOADERS</small>
-            <strong>Vanilla · Fabric · Quilt</strong>
-            <strong>Forge · NeoForge</strong>
+            <strong>Fabric · NeoForge · Forge</strong>
+            <strong>Quilt · Vanilla</strong>
           </div>
           <div className="floatCard javaCard">
             <span>✓</span>
             <div>
-              <small>JAVA READY</small>
-              <strong>Temurin 21</strong>
+              <small>TELEMETRY</small>
+              <strong>Onyx Probe Ready</strong>
             </div>
           </div>
         </div>
@@ -206,19 +211,19 @@ export default function Home() {
       <section className="proof">
         <div className="shell proofGrid">
           <div><strong>5</strong><span>game loaders</span></div>
-          <div><strong>3</strong><span>managed Java lines</span></div>
-          <div><strong>2</strong><span>desktop platforms</span></div>
+          <div><strong>0 MB</strong><span>RAM in Ghost Mode</span></div>
+          <div><strong>54</strong><span>automated test suites</span></div>
           <div><strong>MIT</strong><span>open-source license</span></div>
         </div>
       </section>
 
       <section className="section shell" id="features">
         <div className="sectionHead">
-          <p className="kicker">BUILT FOR THE MESSY PART</p>
-          <h2>A launcher that helps after you click Play.</h2>
+          <p className="kicker">BUILT FOR REAL PERFORMANCE</p>
+          <h2>Advanced diagnostics. Zero runtime overhead.</h2>
           <p>
-            Installing a pack is the easy bit. Keeping instances understandable,
-            recoverable, and fast is where Onyx earns its place.
+            Onyx is engineered to give you complete visibility into game performance
+            and mod stability without slowing down your system.
           </p>
         </div>
         <div className="featureGrid">
@@ -236,26 +241,34 @@ export default function Home() {
         <div className="shell">
           <div className="sectionHead splitHead">
             <div>
-              <p className="kicker">A QUIET INTERFACE</p>
-              <h2>Your instances first. Noise somewhere else.</h2>
+              <p className="kicker">A CLEAN INTERFACE</p>
+              <h2>Everything for your game. Nothing in the way.</h2>
             </div>
             <p>
-              The interface stays compact while the deeper tools remain close:
-              content, profiles, maintenance, performance, and recovery.
+              Compact, fast, and responsive: instances, modpacks, performance curves,
+              and instance recovery are always one click away.
             </p>
           </div>
           <div className="screenGrid">
             <figure className="screen large">
               <img src="/instance.png" alt="Onyx Launcher instance management screen" />
-              <figcaption><span>INSTANCE CONTROL</span><b>Everything for one game, in one place.</b></figcaption>
+              <figcaption><span>PERFORMANCE &amp; TELEMETRY</span><b>In-engine FPS curves, 1% lows, and Flight Recorder metrics.</b></figcaption>
+            </figure>
+            <figure className="screen">
+              <img src="/home.png" alt="Onyx Launcher Control Center dashboard" />
+              <figcaption><span>CONTROL CENTER</span><b>Quick launch, active profiles, and session analytics.</b></figcaption>
             </figure>
             <figure className="screen">
               <img src="/discover.png" alt="Onyx Launcher Modrinth discovery catalog" />
-              <figcaption><span>DISCOVER</span><b>Browse Modrinth without leaving the launcher.</b></figcaption>
+              <figcaption><span>DISCOVER</span><b>Browse and install Modrinth modpacks and mods directly.</b></figcaption>
             </figure>
             <figure className="screen">
               <img src="/library.png" alt="Onyx Launcher content library" />
-              <figcaption><span>LIBRARY</span><b>See what is installed and where it belongs.</b></figcaption>
+              <figcaption><span>LIBRARY</span><b>Separate tabs for Fabric, NeoForge, Quilt, and Forge.</b></figcaption>
+            </figure>
+            <figure className="screen">
+              <img src="/settings.png" alt="Onyx Launcher settings screen" />
+              <figcaption><span>SETTINGS</span><b>Streamlined configuration without marketing clutter.</b></figcaption>
             </figure>
           </div>
         </div>
@@ -264,15 +277,16 @@ export default function Home() {
       <section className="section shell safety">
         <div className="safetyCopy">
           <p className="kicker">DIAGNOSTICS, NOT GUESSWORK</p>
-          <h2>When a modpack breaks, keep the evidence.</h2>
+          <h2>When a modpack breaks, find the exact cause.</h2>
           <p>
-            Capture the launch, narrow conflicting mods, inspect performance, and
-            export a redacted support bundle without handing over your account data.
+            Onyx continuously monitors JVM health and presentation timing.
+            Identify memory leaks, micro-stutters, and conflicting mod IDs in seconds.
           </p>
           <ul>
-            <li><span>↳</span> Crash Bisect across controlled launches</li>
-            <li><span>↳</span> Flight Recorder for CPU, memory, GC, and startup</li>
-            <li><span>↳</span> Redacted support bundles for safer troubleshooting</li>
+            <li><span>↳</span> In-engine FPS &amp; 1% low capture via Onyx Probe JVM agent</li>
+            <li><span>↳</span> Crash Bisect across controlled binary search launches</li>
+            <li><span>↳</span> Flight Recorder for CPU load, memory RSS, and GC pause spikes</li>
+            <li><span>↳</span> Redacted support bundles for safe troubleshooting</li>
           </ul>
         </div>
         <div className="terminal" aria-label="Example diagnostic output">
@@ -281,46 +295,13 @@ export default function Home() {
 minecraft      1.21.1
 loader         Fabric 0.16.10
 java           Temurin 21.0.7
+probe          Onyx Probe (GLFW hooked)
 memory         6144 MB
 world guard    snapshot ready
 mod scan       148 checked
 
 ✓ no blocking conflicts found
-→ ready to launch`}</pre>
-        </div>
-      </section>
-
-      <section className="section shell" id="contribute">
-        <div className="sectionHead splitHead">
-          <div>
-            <p className="kicker">BUILD WITH US</p>
-            <h2>Your first Onyx PR can be small.</h2>
-          </div>
-          <p>
-            Curated issues include acceptance criteria, the files to start from,
-            and exact verification steps. Pick an unassigned task and begin.
-          </p>
-        </div>
-        <div className="featureGrid">
-          <article className="feature">
-            <span>UI</span>
-            <h3>Improve a visible workflow</h3>
-            <p>Add loader filters, sharpen catalog search, or make download errors easier to share.</p>
-          </article>
-          <article className="feature">
-            <span>TEST</span>
-            <h3>Protect a real boundary</h3>
-            <p>Add focused coverage for release assets, downloads, platform behavior, or recovery tools.</p>
-          </article>
-          <article className="feature">
-            <span>DOC</span>
-            <h3>Make the project easier to enter</h3>
-            <p>Turn working launcher behavior into practical guides and architecture notes.</p>
-          </article>
-        </div>
-        <div className="heroActions">
-          <a className="button primary" href={goodFirstIssues}>Browse good first issues</a>
-          <a className="button secondary" href={contributorGuide}>Read the contributor guide</a>
+→ ready to launch (Ghost Mode armed)`}</pre>
         </div>
       </section>
 
@@ -329,11 +310,10 @@ mod scan       148 checked
           <div className="sectionHead splitHead">
             <div>
               <p className="kicker">BEFORE YOU DOWNLOAD</p>
-              <h2>Clear answers, no launcher mythology.</h2>
+              <h2>Clear answers, no marketing fluff.</h2>
             </div>
             <p>
-              Platform support, Java, licensing, integrity, and storage should be
-              understandable before an executable reaches your machine.
+              Platform support, Java, licensing, integrity, and storage explained upfront.
             </p>
           </div>
           <div className="faqGrid">
@@ -351,15 +331,15 @@ mod scan       148 checked
       <section className="download" id="download">
         <div className="shell">
           <div className="sectionHead">
-            <p className="kicker">DOWNLOAD ONYX {latest.version}</p>
-            <h2>Pick a platform. Keep your worlds.</h2>
+            <p className="kicker">DOWNLOAD ONYX {version}</p>
+            <h2>Pick your platform. Play without bloat.</h2>
           </div>
           <div className="downloadGrid">
             <article>
               <div className="platformIcon">▣</div>
               <small>WINDOWS 10 / 11 · X64</small>
               <h3>Windows</h3>
-              <p>NSIS installer for a normal setup, or a portable executable.</p>
+              <p>Installer setup for automatic integration, or standalone portable executable.</p>
               <a className="button primary" href={windows}>Download installer <span>↘</span></a>
               <a className="textLink" href={portable}>Portable .exe</a>
               <a className="textLink" href={scoop}>Install with Scoop</a>
@@ -368,23 +348,26 @@ mod scan       148 checked
               <div className="platformIcon">◆</div>
               <small>MODERN LINUX · X64</small>
               <h3>Linux</h3>
-              <p>Run the AppImage directly, or unpack the portable tar archive.</p>
+              <p>Run universal AppImage directly, or install via native packages.</p>
               <a className="button primary" href={appImage}>Download AppImage <span>↘</span></a>
+              <a className="textLink" href={deb}>Debian / Ubuntu (.deb)</a>
+              <a className="textLink" href={rpm}>Fedora / RHEL (.rpm)</a>
               <a className="textLink" href={linuxTar}>Portable .tar.gz</a>
-              <a className="textLink" href={appImageHub}>View on AppImageHub</a>
             </article>
             <article className="sourceCard">
               <div className="platformIcon">&lt;/&gt;</div>
-              <small>MIT LICENSED</small>
+              <small>MIT LICENSED · 54 TESTS</small>
               <h3>Source</h3>
-              <p>Inspect the code, verify the release workflow, or build it yourself.</p>
-              <a className="button secondary" href={repo}>View source</a>
-              <a className="textLink" href={`${release}#assets`}>Checksums &amp; release notes</a>
+              <p>Inspect the code, verify CI build workflows, or contribute a feature.</p>
+              <a className="button secondary" href={repo}>View on GitHub</a>
+              <a className="textLink" href={`${release}#assets`}>v{version} Checksums &amp; notes</a>
+              <a className="textLink" href={goodFirstIssues}>Good first issues</a>
+              <a className="textLink" href={contributorGuide}>Contributing guide</a>
             </article>
           </div>
           <p className="unsignedNote">
             Windows builds are currently unsigned, so SmartScreen may show a warning.
-            Verify the published SHA-256 checksum before running a download.
+            Verify the published SHA-256 checksum before running.
           </p>
         </div>
       </section>
@@ -401,10 +384,9 @@ mod scan       148 checked
           </p>
           <div>
             <a href={repo}>GitHub</a>
-            <a href={release}>Release {latest.version}</a>
-            <a href="/blog/onyx-launcher-1-6-3">Release story</a>
-            <a href="/press">Press kit</a>
-            <a href="/feed.xml">RSS</a>
+            <a href={release}>Release {version}</a>
+            <a href={goodFirstIssues}>Good first issues</a>
+            <a href={contributorGuide}>Contributing</a>
             <a href={`${repo}/blob/master/SECURITY.md`}>Security</a>
           </div>
         </div>
